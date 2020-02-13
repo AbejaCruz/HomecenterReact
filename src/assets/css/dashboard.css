@@ -1,0 +1,24 @@
+.fila1{
+    background-color: #ffda00;
+    padding-top: 50px;
+}
+.fila2{
+    background-color: #ffffff;
+    padding-top: 50px;
+}
+.cuadro{
+    height:200px;
+    border: 1px solid #000;
+}
+.h3{
+    font-size: 8px;
+}
+.verde{
+    background-color: rgba(210,255,82,1);;
+}
+.rojo{
+    background-color: rgb(245, 40, 40);
+}
+.amarillo{
+    background-color: #ffda00;
+}
