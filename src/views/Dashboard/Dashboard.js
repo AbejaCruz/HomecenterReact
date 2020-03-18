@@ -1,107 +1,272 @@
 import React from "react";
+// react plugin for creating charts
+import ChartistGraph from "react-chartist";
 // @material-ui/core
+import { makeStyles } from "@material-ui/core/styles";
+import Icon from "@material-ui/core/Icon";
+// @material-ui/icons
+import Store from "@material-ui/icons/Store";
+import Warning from "@material-ui/icons/Warning";
+import DateRange from "@material-ui/icons/DateRange";
+import LocalOffer from "@material-ui/icons/LocalOffer";
+import Update from "@material-ui/icons/Update";
+import ArrowUpward from "@material-ui/icons/ArrowUpward";
+import AccessTime from "@material-ui/icons/AccessTime";
+import Accessibility from "@material-ui/icons/Accessibility";
+import BugReport from "@material-ui/icons/BugReport";
+import Code from "@material-ui/icons/Code";
+import Cloud from "@material-ui/icons/Cloud";
+// core components
+import GridItem from "components/Grid/GridItem.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import Table from "components/Table/Table.js";
+import Tasks from "components/Tasks/Tasks.js";
+import CustomTabs from "components/CustomTabs/CustomTabs.js";
+import Danger from "components/Typography/Danger.js";
+import Card from "components/Card/Card.js";
+import CardHeader from "components/Card/CardHeader.js";
+import CardIcon from "components/Card/CardIcon.js";
+import CardBody from "components/Card/CardBody.js";
+import CardFooter from "components/Card/CardFooter.js";
 
-import user from "assets/img/baseline_perm_identity_white_48dp.png";
-import medal from "assets/img/noun_Medal_2302198.png";
-import cup from "assets/img/noun_Cup_2816205.png";
-import happy from "assets/img/noun_emoticon_3107577.png";
-import serius from "assets/img/noun_emoticon_3107476.png";
-import sad from "assets/img/noun_Sad_753166.png";
-import "assets/css/dashboard.css";
+import { bugs, website, server } from "variables/general.js";
+
+import {
+  dailySalesChart,
+  emailsSubscriptionChart,
+  completedTasksChart
+} from "variables/charts.js";
+
+import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
+
+const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
+  const classes = useStyles();
   return (
     <div>
-      <div className="container">
-        <br />
-        <br />
-        <br />
-        <div className="row">
-          <div className="col-sm">
-            <div className="row cuadro">
-              <div className="col-sm fila1 text-center">
-                <img src={user} alt="..." width="120px" />
+      <GridContainer>
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="warning" stats icon>
+              <CardIcon color="warning">
+                <Icon>person</Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>Usuarios Activos</p>
+              <h3 className={classes.cardTitle}>70</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <Update />
+                Just Updated
               </div>
-              <div className="col-sm fila2 text-center">
-                <h1>70</h1>
-                <h4>Auxiliares Activos</h4>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="success" stats icon>
+              <CardIcon color="success">
+                <Icon>access_time</Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>Cumplimiento Horas</p>
+              <h3 className={classes.cardTitle}>80%</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <Update />
+                Just Updated
               </div>
-            </div>
-          </div>
-          <div className="col-sm">
-            <div className="col-sm">
-              <div className="row cuadro">
-                <div className="col-sm fila1 text-center">
-                  <img src={user} alt="..." width="120px" />
-                </div>
-                <div className="col-sm fila2 text-center">
-                  <h1>80%</h1>
-                  <h4>Cumplimiento horas de entrenamiento</h4>
-                </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="danger" stats icon>
+              <CardIcon color="danger">
+                <Icon>timelapse</Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>Horas Promedio</p>
+              <h3 className={classes.cardTitle}>3</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <Update />
+                Just Updated
               </div>
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div className="row">
-          <div className="col-sm">
-            <div className="row cuadro">
-              <div className="col-sm fila1 text-center">
-                <img src={user} alt="..." width="120px" />
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="info" stats icon>
+              <CardIcon color="info">
+                <Accessibility />
+              </CardIcon>
+              <p className={classes.cardCategory}>Followers</p>
+              <h3 className={classes.cardTitle}>+245</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <Update />
+                Just Updated
               </div>
-              <div className="col-sm fila2 text-center">
-                <table>
-                  <tr>
-                    <th>
-                      {" "}
-                      <img src={medal} alt="..." width="50px" />
-                    </th>
-                    <th>
-                      {" "}
-                      <img src={cup} alt="..." width="50px" />
-                    </th>
-                    <th>
-                      {" "}
-                      <img src={happy} alt="..." width="50px" />
-                    </th>
-                    <th>
-                      {" "}
-                      <img src={serius} alt="..." width="50px" />
-                    </th>
-                    <th>
-                      {" "}
-                      <img src={sad} alt="..." width="50px" />
-                    </th>
-                  </tr>
-                  <tr>
-                    <td className="verde">23</td>
-                    <td className="verde">25</td>
-                    <td className="amarillo">9</td>
-                    <td className="rojo">8</td>
-                    <td className="rojo">5</td>
-                  </tr>
-                </table>
-                <h4>Desempeño Total</h4>
+            </CardFooter>
+          </Card>
+        </GridItem>
+      </GridContainer>
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={3}>
+          <Card chart>
+            <CardHeader color="success">
+              <ChartistGraph
+                className="ct-chart"
+                data={dailySalesChart.data}
+                type="Line"
+                options={dailySalesChart.options}
+                listener={dailySalesChart.animation}
+              />
+            </CardHeader>
+            <CardBody>
+              <h4 className={classes.cardTitle}>Desempeño Total</h4>
+            </CardBody>
+            <CardFooter chart>
+              <div className={classes.stats}>
+                <AccessTime /> updated 4 minutes ago
               </div>
-            </div>
-          </div>
-          <div className="col-sm">
-            <div className="col-sm">
-              <div className="row cuadro">
-                <div className="col-sm fila1 text-center">
-                  <img src={user} alt="..." width="120px" />
-                </div>
-                <div className="col-sm fila2 text-center">
-                  <h1>21:34</h1>
-                  <h4>Horas Promedio operario por mes</h4>
-                </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={3}>
+          <Card chart>
+            <CardHeader color="warning">
+              <ChartistGraph
+                className="ct-chart"
+                data={emailsSubscriptionChart.data}
+                type="Bar"
+                options={emailsSubscriptionChart.options}
+                responsiveOptions={emailsSubscriptionChart.responsiveOptions}
+                listener={emailsSubscriptionChart.animation}
+              />
+            </CardHeader>
+            <CardBody>
+              <h4 className={classes.cardTitle}>Historico Usuarios</h4>
+            </CardBody>
+            <CardFooter chart>
+              <div className={classes.stats}>
+                <AccessTime /> updated 4 minutes ago
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={3}>
+          <Card chart>
+            <CardHeader color="danger">
+              <ChartistGraph
+                className="ct-chart"
+                data={completedTasksChart.data}
+                type="Line"
+                options={completedTasksChart.options}
+                listener={completedTasksChart.animation}
+              />
+            </CardHeader>
+            <CardBody>
+              <h4 className={classes.cardTitle}>Cumplimiento Horas</h4>
+            </CardBody>
+            <CardFooter chart>
+              <div className={classes.stats}>
+                <AccessTime /> updated 4 minutes ago
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={3}>
+          <Card chart>
+            <CardHeader color="danger">
+              <ChartistGraph
+                className="ct-chart"
+                data={completedTasksChart.data}
+                type="Line"
+                options={completedTasksChart.options}
+                listener={completedTasksChart.animation}
+              />
+            </CardHeader>
+            <CardBody>
+              <h4 className={classes.cardTitle}>Horas Promedio</h4>
+            </CardBody>
+            <CardFooter chart>
+              <div className={classes.stats}>
+                <AccessTime /> updated 4 minutes ago
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+      </GridContainer>
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={6}>
+          <CustomTabs
+            title="Tasks:"
+            headerColor="primary"
+            tabs={[
+              {
+                tabName: "Bugs",
+                tabIcon: BugReport,
+                tabContent: (
+                  <Tasks
+                    checkedIndexes={[0, 3]}
+                    tasksIndexes={[0, 1, 2, 3]}
+                    tasks={bugs}
+                  />
+                )
+              },
+              {
+                tabName: "Website",
+                tabIcon: Code,
+                tabContent: (
+                  <Tasks
+                    checkedIndexes={[0]}
+                    tasksIndexes={[0, 1]}
+                    tasks={website}
+                  />
+                )
+              },
+              {
+                tabName: "Server",
+                tabIcon: Cloud,
+                tabContent: (
+                  <Tasks
+                    checkedIndexes={[1]}
+                    tasksIndexes={[0, 1, 2]}
+                    tasks={server}
+                  />
+                )
+              }
+            ]}
+          />
+        </GridItem>
+        <GridItem xs={12} sm={12} md={6}>
+          <Card>
+            <CardHeader color="warning">
+              <h4 className={classes.cardTitleWhite}>Employees Stats</h4>
+              <p className={classes.cardCategoryWhite}>
+                New employees on 15th September, 2016
+              </p>
+            </CardHeader>
+            <CardBody>
+              <Table
+                tableHeaderColor="warning"
+                tableHead={["ID", "Name", "Salary", "Country"]}
+                tableData={[
+                  ["1", "Dakota Rice", "$36,738", "Niger"],
+                  ["2", "Minerva Hooper", "$23,789", "Curaçao"],
+                  ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
+                  ["4", "Philip Chaney", "$38,735", "Korea, South"]
+                ]}
+              />
+            </CardBody>
+          </Card>
+        </GridItem>
+      </GridContainer>
     </div>
   );
 }
