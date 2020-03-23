@@ -17,6 +17,7 @@ import BugReport from "@material-ui/icons/BugReport";
 import Code from "@material-ui/icons/Code";
 import Cloud from "@material-ui/icons/Cloud";
 // core components
+import Button from "components/CustomButtons/Button.js";
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import Table from "components/Table/Table.js";
@@ -46,6 +47,14 @@ export default function Dashboard() {
   return (
     <div>
       <GridContainer>
+        <Button color="info" href="" target="_blank">
+          3 Meses
+        </Button>
+        <Button color="info" href="" target="_blank">
+          6 Meses
+        </Button>
+      </GridContainer>
+      <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
             <CardHeader color="warning" stats icon>
@@ -54,23 +63,6 @@ export default function Dashboard() {
               </CardIcon>
               <p className={classes.cardCategory}>Usuarios Activos</p>
               <h3 className={classes.cardTitle}>70</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Just Updated
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="success" stats icon>
-              <CardIcon color="success">
-                <Icon>access_time</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Cumplimiento Horas</p>
-              <h3 className={classes.cardTitle}>80%</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
@@ -99,12 +91,29 @@ export default function Dashboard() {
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
+            <CardHeader color="success" stats icon>
+              <CardIcon color="success">
+                <Icon>access_time</Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>Cumplimiento Horas</p>
+              <h3 className={classes.cardTitle}>80%</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <Update />
+                Just Updated
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
             <CardHeader color="info" stats icon>
               <CardIcon color="info">
                 <Accessibility />
               </CardIcon>
-              <p className={classes.cardCategory}>Followers</p>
-              <h3 className={classes.cardTitle}>+245</h3>
+              <p className={classes.cardCategory}>Accidentes</p>
+              <h3 className={classes.cardTitle}>0</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
